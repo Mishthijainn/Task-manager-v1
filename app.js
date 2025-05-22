@@ -9,7 +9,8 @@ app.use(express.static('./public'))
 app.use(express.json())
 app.use('/api/v1/tasks',router)
 app.use(notfound);
-app.use(errorHandlerMiddleware)
+app.use(errorHandlerMiddleware) //its an error middleware comprimsing of 4 parameters (err,req,res,next)
+//if any next function is called with error it will be caught by this middleware
 const port=process.env.PORT||3000
 const start=async()=>{
     try{
